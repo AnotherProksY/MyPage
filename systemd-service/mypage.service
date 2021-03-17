@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve mypage
+After=network.target
+
+[Service]
+User=username
+Group=www-data
+WorkingDirectory=/path/to/mypage-app
+Environment="PATH=/path/to/mypage-app/mypagevenv/bin"
+ExecStart=/path/to/mypage-app/mypagevenv/bin/uwsgi --ini mypage.ini
+
+[Install]
+WantedBy=multi-user.target

@@ -3,15 +3,44 @@
     src: url(SmallestPixel-7.ttf);
 }
 
+@font-face {
+    font-family: Mono;
+    src: url(JetMono.ttf);
+}
+
 h1 {
     font-family: Pixel;
     font-size: 60px;
+    text-shadow: 0px 5px 15px rgba(200, 200, 200, 1);
 }
 
 h2 {
+    font-family: Mono;
     font-weight: bold;
+    text-shadow: 0px 5px 15px rgba(220, 220, 220, 1);
 }
 
-span {
-    font-family: Pixel;
+hr {
+    width: 30%;
+    margin: auto;
+}
+
+.info-container {
+    min-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.items {
+    width: 300px;
+}
+
+.container {
+    width: max-content;
+    margin: 0px auto;
+}
+
+.container p {
+    text-align: left;
 }

@@ -8,7 +8,7 @@ from datetime import date, timedelta
 BASE_DIR = dirname(abspath(__file__))
 
 
-@route('/static/<filename>')
+@route('/static/<filename:path>')
 def server_static(filename):
     """Serve all static files which used in HTML."""
     return static_file(filename, root=f'{BASE_DIR}/static')
@@ -19,7 +19,7 @@ def main():
     """Load main page."""
     age = (date.today() - date(1999, 11, 11)) // timedelta(days=365.2425)
 
-    return template(f'{BASE_DIR}/main.html', age=age)
+    return template(f'{BASE_DIR}/views/main.html', age=age)
 
 
 if __name__ == "__main__":

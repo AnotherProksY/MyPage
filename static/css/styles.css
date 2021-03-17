@@ -1,11 +1,11 @@
 @font-face {
     font-family: Pixel;
-    src: url(SmallestPixel-7.ttf);
+    src: url(../fonts/SmallestPixel-7.ttf);
 }
 
 @font-face {
     font-family: Mono;
-    src: url(JetMono.ttf);
+    src: url(../fonts/JetMono.ttf);
 }
 
 h1 {

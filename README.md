@@ -6,8 +6,6 @@
   <img src="assets/web-preview.png">
 </p>
 
----
-
 ## License and Attribution
 
 MyPage is licensed under the [MIT License](https://github.com/AnotherProksY/MyPage/blob/master/LICENSE), a short and simple permissive license with conditions only requiring preservation of copyright and license notices.

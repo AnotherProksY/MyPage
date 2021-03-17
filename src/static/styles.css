@@ -26,7 +26,6 @@ hr {
 }
 
 .info-container {
-    min-width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

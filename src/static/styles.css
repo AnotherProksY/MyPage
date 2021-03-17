@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Pixel;
+    src: url(SmallestPixel-7.ttf);
+}
+
+h1 {
+    font-family: Pixel;
+    font-size: 60px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+span {
+    font-family: Pixel;
+}

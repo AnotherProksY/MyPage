@@ -21,5 +21,7 @@
 
 ## License and Attribution
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d2588bbd77594baaa978c0aa802f0fe5)](https://app.codacy.com/gh/AnotherProksY/MyPage?utm_source=github.com&utm_medium=referral&utm_content=AnotherProksY/MyPage&utm_campaign=Badge_Grade_Settings)
+
 MyPage is licensed under the [MIT License](https://github.com/AnotherProksY/MyPage/blob/master/LICENSE), a short and simple permissive license with conditions only requiring preservation of copyright and license notices.
 Licensed works, modifications, and larger works may be distributed under different terms and without source code.

@@ -1,6 +1,19 @@
-# My Page
+<p align="center">
+    <img width="12%" src="assets/logo.png" alt="Banner">
+</p>
+<p align="center">
+    <b>Simple Landing page with my info.</b><br />
+</p>
 
-<b>Simple Landing page with my info.</b>
+<br />
+
+<p align="center">
+    <a href="https://github.com/AnotherProksY/MyPage/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License Badge">
+    </a>
+</p>
+
+<br />
 
 <p align="center">
   <img src="assets/web-preview.png">

@@ -11,6 +11,9 @@
     <a href="https://github.com/AnotherProksY/MyPage/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License Badge">
     </a>
+    <a href="https://www.codacy.com/gh/AnotherProksY/MyPage/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AnotherProksY/MyPage&amp;utm_campaign=Badge_Grade">
+        <img src="https://app.codacy.com/project/badge/Grade/315eb5b49f0c49bab89547ef85d27b43" alt="Codacy Badge">
+    </a>
 </p>
 
 <br />

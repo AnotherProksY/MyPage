@@ -1,0 +1,30 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+        always_run: true
+    -   id: end-of-file-fixer
+        always_run: true
+    -   id: check-yaml
+        always_run: true
+    -   id: check-added-large-files
+        always_run: true
+    -   id: check-executables-have-shebangs
+        always_run: true
+    -   id: check-merge-conflict
+        always_run: true
+    -   id: debug-statements
+        always_run: true
+    -   id: detect-private-key
+        always_run: true
+    -   id: fix-encoding-pragma
+        always_run: true
+    -   id: requirements-txt-fixer
+        always_run: true
+
+-   repo: https://github.com/PyCQA/bandit
+    rev: 1.6.2
+    hooks:
+    -   id: bandit
+        always_run: true

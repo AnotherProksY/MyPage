@@ -1,9 +1,9 @@
 <p align="center">
     <img width="12%" src="assets/logo.png" alt="Banner">
 </p>
-<p align="center">
+<h2 align="center">
     <b>Simple Landing page with my info.</b><br />
-</p>
+</h2>
 
 <br />
 

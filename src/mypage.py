@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Bottle web-server."""
 
 from bottle import Bottle

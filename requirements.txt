@@ -1,2 +1,4 @@
 bottle==0.12.19
+pre-commit==2.11.1
 uWSGI==2.0.19.1
+WebTest==2.0.35

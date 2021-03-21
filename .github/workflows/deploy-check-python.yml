@@ -31,8 +31,10 @@ jobs:
       env:
         TEST_ENV: ${{ secrets.TEST_ENV_VAR }}
       run: |
-        echo "${TEST_ENV}"
-        echo "$TEST_ENV"
+        echo "${TEST_ENV}" > test_file1
+        echo "$TEST_ENV" > test_file2
+        cat test_file1
+        cat test_file2
     - name: Create ssh keys
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}

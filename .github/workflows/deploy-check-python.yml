@@ -29,8 +29,9 @@ jobs:
         python tests/test_main_page.py
     - name: Testing
       env:
-        TEST_ENV: Hello
+        TEST_ENV: ${{ secrets.TEST_ENV_VAR }}
       run: |
+        echo "${TEST_ENV}"
         echo "$TEST_ENV"
     - name: Create ssh keys
       env:

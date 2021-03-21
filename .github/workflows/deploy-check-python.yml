@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - id: fetch-latest-release
+    - id: latest
       uses: thebritican/fetch-latest-release@v2
       with:
-        github_token: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - uses: actions/checkout@v2
       with:

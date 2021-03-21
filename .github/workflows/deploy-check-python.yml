@@ -34,9 +34,9 @@ jobs:
         SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       run: |
         mkdir -p ~/.ssh/
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
+        echo "${{ env.SSH_PRIVATE_KEY }}" > ~/.ssh/private.key
         sudo chmod 600 ~/.ssh/private.key
-        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        echo "${{ env.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
     - name: Deploy on server
       shell: bash
       env:
@@ -44,9 +44,9 @@ jobs:
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
         TARGET: ${{ secrets.REMOTE_TARGET }}
       run: |
-        echo "$REMOTE_HOST"
-        echo "$REMOTE_USER"
-        echo "$REMOTE_TARGET"
+        echo "${{ env.REMOTE_HOST }}"
+        echo "${{ env.REMOTE_USER }}"
+        echo "${{ env.REMOTE_TARGET }}"
         rsync -avz -e "ssh -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=~/.ssh/known_hosts" \
         --progress src/ \
         "$REMOTE_USER"@"$REMOTE_HOST":"$TARGET"

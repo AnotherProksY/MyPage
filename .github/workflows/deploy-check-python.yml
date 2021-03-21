@@ -31,17 +31,16 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.5
       with:
         # Private Key
-        SSH_PRIVATE_KEY: 
+        SSH_PRIVATE_KEY:
         # Remote host
-        REMOTE_HOST: 
+        REMOTE_HOST:
         # Remote user
-        REMOTE_USER: 
+        REMOTE_USER:
         # Remote port
         REMOTE_PORT: # optional, default is 22
         # Source directory
-        SOURCE: # optional, default is 
+        SOURCE: # optional, default is
         # Target directory
         TARGET: # optional, default is /home/REMOTE_USER/
         # Arguments to pass to rsync
-
-    ARGS: # optional, default is -rltgoDzvO
+        ARGS: # optional, default is -rltgoDzvO

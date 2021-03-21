@@ -49,7 +49,7 @@ jobs:
         sudo chmod 600 ~/.ssh/private.key
         echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
 
-    - name: Deploy and restart app
+    - name: Deploy on server
       env:
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
@@ -58,4 +58,24 @@ jobs:
         rsync -avz -e "ssh -i ~/.ssh/private.key -o StrictHostKeyChecking=no -o UserKnownHostsFile=~/.ssh/known_hosts" \
         --progress src/ \
         "$REMOTE_USER"@"$REMOTE_HOST":"$TARGET"
-        ssh "$REMOTE_USER"@"$REMOTE_HOST" sudo systemctl restart mypage.service
+
+    - name: Restart app
+      env:
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+      run: |
+        ssh -i ~/.ssh/private.key \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=~/.ssh/known_hosts \
+        "$REMOTE_USER"@"$REMOTE_HOST" sudo systemctl restart mypage.service
+
+    - name: Get response from NGINX
+      env:
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      run: |
+        RESPONSE_CODE=$(curl -I https://"$REMOTE_HOST" 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+        if [ $RESPONSE_CODE = 200 ]; then
+          exit 0
+        else
+          exit 1
+        fi

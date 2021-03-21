@@ -14,6 +14,9 @@
     <a href="https://www.codacy.com/gh/AnotherProksY/MyPage/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AnotherProksY/MyPage&amp;utm_campaign=Badge_Grade">
         <img src="https://app.codacy.com/project/badge/Grade/315eb5b49f0c49bab89547ef85d27b43" alt="Codacy Badge">
     </a>
+    <a href="https://github.com/AnotherProksY/MyPage/actions/workflows/deploy-check-python.yml">
+        <img src="https://github.com/AnotherProksY/MyPage/actions/workflows/deploy-check-python.yml/badge.svg" alt="Github Build">
+    </a>
 </p>
 
 <br />

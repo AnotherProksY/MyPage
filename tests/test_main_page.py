@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This module contains tests for 'src/mypage.py'."""
+"""Module contains tests for 'src/mypage.py'."""
 
 import sys
 sys.path.append('src')

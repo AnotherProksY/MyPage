@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """This module contains tests for 'src/mypage.py'."""
 
-from webtest import TestApp
-import mypage
-
 import sys
 sys.path.append('src')
+
+from webtest import TestApp
+import mypage
 
 
 def test_main_page():

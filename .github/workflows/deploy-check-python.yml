@@ -30,20 +30,18 @@ jobs:
     - name: Create ssh keys
       run: |
         mkdir -p ~/.ssh/
-        echo "$SSH_PRIVATE_KEY" > ../private.key
-        sudo chmod 600 ../private.key
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
+        sudo chmod 600 ~/.ssh/private.key
         echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
       shell: bash
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
         SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
-        SSH_KEY_PATH: ${{ github.workspace }}/../private.key
     - name: Deploy on server
       run: |
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=~/.ssh/known_hosts" \
         --progress src/ \
-        "$REMOTE_USER"@"$REMOTE_HOST":\
-        "$TARGET"
+        "$REMOTE_USER"@"$REMOTE_HOST":"$TARGET"
       shell: bash
       env:
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}

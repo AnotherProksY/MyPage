@@ -27,6 +27,11 @@ jobs:
     - name: Test with webtest
       run: |
         python tests/test_main_page.py
+    - name: Testing
+      env:
+        TEST_ENV: Hello
+      run: |
+        echo "$TEST_ENV"
     - name: Create ssh keys
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}

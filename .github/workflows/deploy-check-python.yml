@@ -1,8 +1,8 @@
-name: Python application
+name: Build
 
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [ published, deleted ]
 
 jobs:
   build:
@@ -10,23 +10,35 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+    - id: fetch-latest-release
+      uses: thebritican/fetch-latest-release@v2
+      with:
+        github_token: ${{ github.token }}
+
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ steps.latest.outputs.tag_name }}
+
     - name: Set up Python 3.6
       uses: actions/setup-python@v2
       with:
         python-version: 3.6
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Lint with flake8
       run: |
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
     - name: Test with webtest
       run: |
         python tests/test_main_page.py
+
     - name: Create ssh keys
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
@@ -36,7 +48,8 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
         sudo chmod 600 ~/.ssh/private.key
         echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-    - name: Deploy on server
+
+    - name: Deploy and restart app
       env:
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
@@ -45,3 +58,4 @@ jobs:
         rsync -avz -e "ssh -i ~/.ssh/private.key -o StrictHostKeyChecking=no -o UserKnownHostsFile=~/.ssh/known_hosts" \
         --progress src/ \
         "$REMOTE_USER"@"$REMOTE_HOST":"$TARGET"
+        ssh "$REMOTE_USER"@"$REMOTE_HOST" sudo systemctl restart mypage.service

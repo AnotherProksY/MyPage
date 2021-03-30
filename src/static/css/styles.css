@@ -8,6 +8,11 @@
   src: url(../fonts/JetMono.ttf);
 }
 
+@font-face {
+  font-family: RobotoBold;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
 h1 {
   font-family: Pixel, sans-serif;
   font-size: 60px;
@@ -15,14 +20,25 @@ h1 {
 }
 
 h2 {
-  font-family: Mono, sans-serif;
+  font-family: RobotoBold, sans-serif;
+  font-weight: bold;
+  text-shadow: 0 5px 15px rgba(220, 220, 220, 1);
+  font-size: 30px;
+}
+
+h3 {
+  font-family: RobotoBold, sans-serif;
   font-weight: bold;
   text-shadow: 0 5px 15px rgba(220, 220, 220, 1);
 }
 
 hr {
-  width: 30%;
+  border: none;
+  width: 25%;
   margin: auto;
+  color: rgb(219, 97, 92);
+  background-color: rgb(219, 97, 92);
+  height: 4px;
 }
 
 .info-container {
